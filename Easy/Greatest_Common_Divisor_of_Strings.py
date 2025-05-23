@@ -25,5 +25,4 @@ class Solution(object):
             return gcd(b % a, a)
 
         max_len = gcd(len(str1), len(str2))
-        print(max_len)
         return str1[:max_len]
