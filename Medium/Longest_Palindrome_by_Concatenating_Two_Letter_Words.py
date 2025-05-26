@@ -17,7 +17,6 @@ class Solution(object):
         for word in list(freqs.keys()):
             rev = word[::-1]
             if word == rev:
-                # Palabras como "aa", "bb", etc.
                 count = freqs[word]
                 pairs = count // 2
                 total += pairs * 4
@@ -25,14 +24,13 @@ class Solution(object):
                 if freqs[word] == 1:
                     has_center = True
             elif rev in freqs:
-                # Palabras como "ab" y "ba"
                 pair_count = min(freqs[word], freqs[rev])
                 total += pair_count * 4
                 freqs[word] -= pair_count
                 freqs[rev] -= pair_count
 
         if has_center:
-            total += 2  # Podemos usar una palabra como "aa" en el centro
+            total += 2
 
         return total
 
